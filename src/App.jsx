@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenuHandler = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
     return (
         <div>
             <header>
@@ -10,7 +14,7 @@ const App = () => {
                             <div className="logo">
                                 <img src="images/logo.svg" alt="logo" />
                             </div>
-                            <ul className="nav-list">
+                            <ul className={`nav-list ${isMenuOpen && "show-menu"}`}>
                                 <li className="nav-item">
                                     <a href="/" className="nav-link">
                                         Home
@@ -37,14 +41,16 @@ const App = () => {
                                     </a>
                                 </li>
                             </ul>
+
                             <button className="btn">Request Invite</button>
-                            <div className="nav-toggler">
+                            <div onClick={toggleMenuHandler} className="nav-toggler">
                                 <img src="images/icon-hamburger.svg" alt="menu icon" className="show" />
                                 <img src="images/icon-close.svg" alt="close icon" className="" />
                             </div>
                         </div>
                     </div>
                 </nav>
+                <div className={`overlay ${isMenuOpen && "show-menu"}`}></div>
 
                 <div className="hero-section">
                     <div className="container">
@@ -125,7 +131,10 @@ const App = () => {
                     <div className="col-4">
                         {/* Card */}
                         <article className="card">
-                            <img src="images/image-currency.jpg" alt="currency image" className="card-img" />
+                            <div className="card-img">
+                                <img src="images/image-currency.jpg" alt="currency image" className="" />
+                            </div>
+
                             <div className="card-body">
                                 <div className="article-author">By Claire Robinson</div>
                                 <h3 className="card-heading">Receive money in any currency with no fee</h3>
@@ -137,11 +146,9 @@ const App = () => {
                         </article>
                         {/* Card */}
                         <article className="card">
-                            <img
-                                src="images/image-restaurant.jpg"
-                                alt="currency image"
-                                className="card-img"
-                            />
+                            <div className="card-img">
+                                <img src="images/image-restaurant.jpg" alt="currency image" className="" />
+                            </div>
                             <div className="card-body">
                                 <div className="article-author">By Wilson Hutton</div>
                                 <h3 className="card-heading">Treat yourself without worrying about money</h3>
@@ -153,7 +160,9 @@ const App = () => {
                         </article>
                         {/* Card */}
                         <article className="card">
-                            <img src="images/image-plane.jpg" alt="currency image" className="card-img" />
+                            <div className="card-img">
+                                <img src="images/image-plane.jpg" alt="currency image" className="" />
+                            </div>
                             <div className="card-body">
                                 <div className="article-author">By Wilson hutton</div>
                                 <h3 className="card-heading">Take your Easybank card wherever you go</h3>
@@ -165,7 +174,10 @@ const App = () => {
                         </article>
                         {/* Card */}
                         <article className="card">
-                            <img src="images/image-confetti.jpg" alt="currency image" className="card-img" />
+                            <div className="card-img">
+                                <img src="images/image-confetti.jpg" alt="currency image" className="" />
+                            </div>
+
                             <div className="card-body">
                                 <div className="article-author">By Claire Robinson</div>
                                 <h3 className="card-heading">Our invite-only Beta accounts are now live!</h3>
